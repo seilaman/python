@@ -5,10 +5,23 @@ retry=0
 wordlist=["PIKACHU", "SEILA", "KEYBOARD","WORK","WALK","PROJECT","FIND","SUBLIME"]
 Wordtofind=wordlist[random.randrange(0, len(wordlist))]
 #Wordtofind= "PIKACHU"
+#tip: list(len(Wordtofind) * "") is the same as [""] * len(Wordtofind) or even [ "_" for i in Wordtofind ] none is better, I usually choose the second one out of habit I guess
 letters=[]
 WordSplit = list(Wordtofind)
 global Lettersfoundsofar
 Lettersfoundsofar = list(len(Wordtofind) * "_")
+Lettersfoundsofar =  ["_" for i in Wordtofind ]
+
+
+def findall(needle, haystack):
+	result=[]
+	i=0
+	for i in range(len(haystack)):
+		if haystack.startswith(needle,i):
+			result.append(i)
+	print(result)
+
+findall("a","abracadabra")
 
 if (NewGame == "Y" or NewGame == "y"):
 	print ("\n" + "*"*15 + "\n* Let's play! *\n" +"*"*15 + "\n")
