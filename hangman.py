@@ -41,5 +41,5 @@ if (NewGame == "Y" or NewGame == "y"):
 		if retry == 10:
 			print("You lost! Get lost!")
 else:
-	print("Bye!")
+	print("Byeeeeeeee!")
 	exit()
