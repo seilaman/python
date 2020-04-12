@@ -3,7 +3,6 @@ import random
 NewGame = input("Do you want to play? (Y/N)")
 retry=0
 wordlist=["PIKACHU", "SEILA", "KEYBOARD","WORK","WALK","PROJECT","FIND","SUBLIME"]
-wordlist=["ABRACADABRA"]
 Wordtofind=wordlist[random.randrange(0, len(wordlist))]
 letters=[]
 WordSplit = list(Wordtofind)
@@ -12,9 +11,8 @@ Lettersfoundsofar =  ["_" for i in Wordtofind ]
 
 def findall(needle, haystack):
 	result=[]
-	i=0
-	for i in range(len(haystack)):
-		if haystack.startswith(needle,i):
+	for i, char in enumerate(haystack):
+		if char == needle:
 			result.append(i)
 	return result
 
@@ -23,13 +21,12 @@ if (NewGame == "Y" or NewGame == "y"):
 	while retry < 10:
 		Input = input("\n\nGive me a letter: ").capitalize()
 		print("------------\n\n")
-		if Input != "" and len(Input) == 1:
-			Letterfound = Wordtofind.find(Input)
+		if len(Input) == 1:
 			b = findall(Input,Wordtofind)
-			if Letterfound != -1:
+			if len(b)>0:
 				print("Letter Found!")
-				for j in range(len(findall(Input,Wordtofind))):
-					Lettersfoundsofar[b[j]]=Input
+				for j in b:
+					Lettersfoundsofar[j]=Input
 				if (Lettersfoundsofar == WordSplit):
 					print("All letters have been found! Well done mate!\n")
 					exit()
